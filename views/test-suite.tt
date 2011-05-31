@@ -1,0 +1,10 @@
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1">
+  <tbody>
+  <tr><td><b>TTT</b></td></tr>
+  [% FOREACH suite IN tsuite %]
+  <tr>
+    <td><a href="/test-case/[% suite.1 %]">[% suite.0 %]</a></td>
+  </tr>
+  [% END %]
+  </tbody>
+</table>
