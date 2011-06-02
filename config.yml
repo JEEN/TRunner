@@ -14,10 +14,10 @@ engines:
     end_tag: '%]'
 
 smolder:
-  server: smolder.silex.kr
+  server: your server
   port: 80
-  username: jeen
-  password: jiny8402
+  username: username
+  password: password
   project_id: 2
 
 selenium:
