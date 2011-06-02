@@ -1,6 +1,8 @@
 package TRunner;
+use utf8;
 use Dancer ':syntax';
 use TRunner::Bridge::Smolder;
+
 our $VERSION = '0.1';
 
 get '/' => sub {

@@ -4,10 +4,10 @@ use namespace::autoclean;
 use TRunner::Bridge::Smolder::Uploader;
 use HTTP::BrowserDetect;
 use LWP::UserAgent;
-use HTML::TreeBuilder::XPath;
 use Web::Query;
 use Archive::Tar;
 use YAML;
+use Encode;
 
 # Dancer Request
 has user_agent => (
@@ -54,7 +54,7 @@ sub _generate_tap_archive {
     });
     my $str = $self->_generate_tap_string([ @cases ]);
     my $filename = sprintf 't/%03d.t', $idx;
-    $tar->add_data($filename, $str);
+    $tar->add_data($filename, Encode::encode_utf8($str));
     push @files, $filename;
   }
   $tar->add_data('meta.yml', $self->_generate_tap_meta_string(\@files));

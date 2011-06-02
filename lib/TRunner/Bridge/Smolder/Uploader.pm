@@ -1,4 +1,5 @@
 package TRunner::Bridge::Smolder::Uploader;
+use utf8;
 use Any::Moose;
 use namespace::autoclean;
 use WWW::Mechanize;
