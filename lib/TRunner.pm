@@ -1,6 +1,6 @@
 package TRunner;
 use Dancer ':syntax';
-
+use TRunner::Bridge::Smolder;
 our $VERSION = '0.1';
 
 get '/' => sub {
@@ -22,9 +22,20 @@ get '/test-suite' => sub {
   template 'test-suite', { tsuite => config->{selenium}->{TestSuite} }, { layout => undef };
 };
 
+post '/post-results' => sub {
+  my %params = params;
+  my $smolder = TRunner::Bridge::Smolder->new(
+    "user_agent" => request->user_agent,
+    "params"  => \%params,
+    "config"  => config->{smolder},
+  );
+  $smolder->upload;
+  template 'post-results', {}, { layout => undef };
+};
+
 before_template sub {
   my $tokens = shift;
-  $tokens->{uri_base} = '';
+  $tokens->{uri_base} = request->uri_base;
 };
 
 true;

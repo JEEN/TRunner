@@ -17,7 +17,7 @@ Copyright 2004 ThoughtWorks, Inc
              <head> 
              <meta content="text/html; charset=UTF-8"
              http-equiv="content-type"> 
-             <link rel="stylesheet" href="/css/selenium-test.css" />
+             <link rel="stylesheet" href="[% uri_base %]/css/selenium-test.css" />
              <title>Test Suite</title> 
              </head> 
              <body>
@@ -27,7 +27,7 @@ Copyright 2004 ThoughtWorks, Inc
   <tr><td><b>TTT</b></td></tr>
   [% FOREACH suite IN tsuite %]
   <tr>
-    <td>[% IF suite.2 %]<h2>[% suite.2 %]</h2>[% END %]<a href="/test-case/[% suite.1 %]">[% suite.0 %]</a></td>
+    <td>[% IF suite.2 %]<h2>[% suite.2 %]</h2>[% END %]<a href="[% uri_base %]/test-case/[% suite.1 %]">[% suite.0 %]</a></td>
   </tr>
   [% END %]
   </tbody>

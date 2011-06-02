@@ -13,6 +13,13 @@ engines:
     start_tag: '[%'
     end_tag: '%]'
 
+smolder:
+  server: smolder.silex.kr
+  port: 80
+  username: jeen
+  password: jiny8402
+  project_id: 2
+
 selenium:
   base: http://localhost:5000/
   TestSuite:

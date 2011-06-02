@@ -66,10 +66,10 @@ to work-around a bug in IE on Win2K whereby the HTA application doesn't function
 
 <tr class="selenium">
 <td width="25%" height="30%">
-    <iframe name="testSuiteFrame" id="testSuiteFrame" src="/test-suite" application="yes"></iframe>
+    <iframe name="testSuiteFrame" id="testSuiteFrame" src="[% uri_base %]/test-suite" application="yes"></iframe>
 </td>
 <td width="50%" height="30%">
-    <iframe name="testFrame" id="testFrame" application="yes" src="/Blank.html"></iframe>
+    <iframe name="testFrame" id="testFrame" application="yes" src="[% uri_base %]/Blank.html"></iframe>
 </td>
 
 <td width="25%">
@@ -165,7 +165,7 @@ to work-around a bug in IE on Win2K whereby the HTA application doesn't function
 
 <tr>
     <td colspan="3" height="70%">
-        <iframe name="selenium_myiframe" id="selenium_myiframe" src="/TestRunner-splash.html"></iframe>
+        <iframe name="selenium_myiframe" id="selenium_myiframe" src="[% uri_base %]/TestRunner-splash.html"></iframe>
     </td>
 </tr>
 
