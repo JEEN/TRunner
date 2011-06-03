@@ -383,7 +383,9 @@ objectExtend(HtmlTestRunnerControlPanel.prototype, {
     isAutomatedRun: function() {
         return this._isQueryParameterTrue("auto");
     },
-
+    isUploadTestResults: function() {
+        return this._isQueryParameterTrue("post");
+    },
     shouldSaveResultsToFile: function() {
         return this._isQueryParameterTrue("save");
     },
@@ -734,7 +736,7 @@ objectExtend(SeleniumTestResult.prototype, {
     },
 
     post: function () {
-        if (!this.controlPanel.isAutomatedRun()) {
+        if (!this.controlPanel.isUploadTestResults()) {
             return;
         }
         var form = document.createElement("form");
