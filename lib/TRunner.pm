@@ -10,7 +10,7 @@ get '/' => sub {
 };
 
 get '/test-runner' => sub {
-  template 'test-runner', {}, { layout => undef };
+  template 'test-runner';
 };
 
 get '/test-case/:name' => sub {
@@ -21,7 +21,7 @@ get '/test-case/:name' => sub {
 };
 
 get '/test-suite' => sub {
-  template 'test-suite', { tsuite => config->{selenium}->{TestSuite} }, { layout => undef };
+  template 'test-suite', { tsuite => config->{selenium}->{TestSuite} };
 };
 
 post '/post-results' => sub {
@@ -32,7 +32,7 @@ post '/post-results' => sub {
     "config"  => config->{smolder},
   );
   $smolder->upload;
-  template 'post-results', {}, { layout => undef };
+  template 'post-results';
 };
 
 before_template sub {
