@@ -1,6 +1,12 @@
 use strict;
 use warnings;
-use TRunner::Bridge::Smolder;
+use Test::More;
+plan tests => 2;
+
+BEGIN {
+  use_ok("TRunner::Bridge::Smolder");
+}
+ 
 use Data::Section::Simple qw/get_data_section/;
 
 my $r = TRunner::Bridge::Smolder->new(
@@ -20,9 +26,8 @@ my $r = TRunner::Bridge::Smolder->new(
   },
 );
 
-my $r = $r->upload;
-use Data::Dumper;
-print Dumper $r;
+is($r->upload, 1, "DONE");
+
 __DATA__
 
 @@ testTable1
