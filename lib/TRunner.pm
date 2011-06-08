@@ -5,7 +5,7 @@ use TRunner::Bridge::Smolder;
 use YAML::XS;
 our $VERSION = '0.1';
 
-my $selenium = YAML::XS::LoadFile(path(setting('confdir') || setting('appdir'), 'selenium.yml'));
+my $selenium = YAML::XS::LoadFile($ENV{SELENIUM_CONF_PATH} || path(setting('confdir') || setting('appdir'), 'selenium.yml'));
 
 get '/' => sub {
     template 'index', { config => config };
