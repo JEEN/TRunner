@@ -13,64 +13,7 @@ engines:
     end_tag: '%]'
 
 smolder:
-  server: your server
-  port: 80
-  username: username
-  password: password
-  project_id: 2
-
-selenium:
-  base: http://localhost:5000/
-  TestSuite:
-    - [ Login, 001_login_test, "Login/Logout" ]
-    - [ Logout, 002_logout_test ]
-    - [ LoginBeforeCreateForm, 001_login_test, "Create Form" ]
-    - [ CreateForm, 003_create_form ]
-    - [ CreatePaper, 004_create_paper, "Create Paper" ]
-
-  TestCase:
-    001_login_test:
-      title: Login테스트
-      description: 테스트계정으로 로그인합니다
-      tests:
-        - [ open, "/login" ]
-        - [ type, username, root ]
-        - [ type, password, 1234 ]
-        - [ clickAndWait, 'css=input[type=submit]' ]
-        - [ verifyTextPresent, logout ]
-    002_logout_test:
-      title: Logout테스트
-      description: 로그아웃합니다
-      tests:
-        - [ verifyTextPresent, logout ]
-        - [ clickAndWait, 'link=logout' ]
-        - [ assertTitle, Login ]
-    003_create_form:
-      title: Journal 데이터 추가
-      description: 시범적인 Journal 데이터를 추가합니다
-      tests:
-        - [ clickAndWait, "link=new journal" ]
-        - [ type, issn, 1001 ]
-        - [ type, full_name, "뭐없다" ]
-        - [ type, initial, "뭐없지" ]
-        - [ type, pm_reference_name, "뭐없고말고" ]
-        - [ clickAndWait, 'css=input[type=submit]' ]
-        - [ verifyTextPresent, 1001 ]
-        - [ verifyTextPresent, "뭐없다" ]
-        - [ verifyTextPresent, "뭐없지" ]
-        - [ verifyTextPresent, "뭐없고말고" ]
-    004_create_paper:
-      title: Paper 데이터 추가
-      description: 시범적인 Paper 데이터를 추가합니다
-      tests:
-        - [ clickAndWait, "link=new paper" ]
-        - [ clickAndWait, "link=The American Journal of Cardilology" ]
-        - [ type, title, "타이틀테스트" ]
-        - [ type, author1, "주저자테스트" ]
-        - [ type, abstract, "에엑?" ]
-        - [ clickAndWait, 'css=input[type=submit]' ]
-        - [ verifyTextPresent, "타이틀테스트" ]
-        - [ verifyTextPresent, "주저자테스트" ]
-        - [ verifyTextPresent, "에엑?" ]
-        - [ clickAndWait, "link=건너띄기" ]
-
+  server: ""
+  username: ""
+  password: ""
+  project_id: ""
