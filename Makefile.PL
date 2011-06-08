@@ -14,6 +14,7 @@ WriteMakefile(
     PREREQ_PM => {
         'Test::More' => 0,
         'YAML'       => 0,
+        'YAML::XS'   => 0,
         'Dancer'     => 1.3051,
         'Dancer::Template::TemplateToolkit' => 0,
         'Any::Moose' => 0,
