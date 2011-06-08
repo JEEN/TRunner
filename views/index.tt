@@ -17,12 +17,18 @@
     </div>
 
     <div id="content">
-      <div>
+[% config.name %]
+    <div>
        <form action="[% request.uri_base %]/test-runner" id="form" title="Selenium Test Runner">
        <input type="hidden" name="test" value="[% request.uri_base %]/test-suite" />
        <input type="hidden" name="resultsUrl" value="[% request.uri_base %]/post-results" />
        <p><input type="checkbox" name="auto" value="true" /> 자동테스트 시작</p>
-       <p><input type="checkbox" name="post" value="true" /> 테스트결과를 시스템에 전송</p>
+       [% IF config.smolder.server %]
+       <p><input type="checkbox" name="post" value="true" /> 테스트결과를 전송</p>
+       [% ELSE %]
+       <p><input type="checkbox" name="post" value="true" disabled /><strike> 테스트결과를 전송</strike></p>
+       <span>Smolder 서버의 설정정보를 찾을 수 없어, 테스트결과를 전송할 수 없습니다.</span>
+       [% END %]
        <input type="submit" value="브라우저 테스트화면으로" />
        </form>
       </div>
