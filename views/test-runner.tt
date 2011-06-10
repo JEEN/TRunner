@@ -24,29 +24,29 @@ to work-around a bug in IE on Win2K whereby the HTA application doesn't function
         <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"/>
 
         <title>Selenium Functional Test Runner</title>
-        <link rel="stylesheet" type="text/css" href="[% uri_base %]/css/selenium.css"/>
-        <script type="text/javascript" src="[% uri_base %]/scripts/xmlextras.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/lib/prototype.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/lib/cssQuery/cssQuery-p.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/lib/snapsie.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/scripts/htmlutils.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/scripts/ui-element.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/lib/scriptaculous/scriptaculous.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/scripts/selenium-browserdetect.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/scripts/selenium-browserbot.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/scripts/find_matching_child.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/scripts/selenium-api.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/scripts/selenium-commandhandlers.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/scripts/selenium-executionloop.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/scripts/selenium-testrunner.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/scripts/selenium-logging.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/scripts/selenium-version.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/xpath/util.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/xpath/xmltoken.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/xpath/dom.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/xpath/xpath.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/xpath/javascript-xpath-0.1.11.js"></script>
-        <script language="JavaScript" type="text/javascript" src="[% uri_base %]/scripts/user-extensions.js"></script>
+        <link rel="stylesheet" type="text/css" href="[% request.uri_for('/css/selenium.css') %]"/>
+        <script type="text/javascript" src="[% request.uri_for('/scripts/xmlextras.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/lib/prototype.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/lib/cssQuery/cssQuery-p.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/lib/snapsie.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/scripts/htmlutils.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/scripts/ui-element.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/lib/scriptaculous/scriptaculous.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/scripts/selenium-browserdetect.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/scripts/selenium-browserbot.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/scripts/find_matching_child.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/scripts/selenium-api.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/scripts/selenium-commandhandlers.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/scripts/selenium-executionloop.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/scripts/selenium-testrunner.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/scripts/selenium-logging.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/scripts/selenium-version.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/xpath/util.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/xpath/xmltoken.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/xpath/dom.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/xpath/xpath.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/xpath/javascript-xpath-0.1.11.js') %]"></script>
+        <script language="JavaScript" type="text/javascript" src="[% request.uri_for('/scripts/user-extensions.js') %]"></script>
         <script language="JavaScript" type="text/javascript">
             function openDomViewer() {
                 var autFrame = document.getElementById('selenium_myiframe');
@@ -66,10 +66,10 @@ to work-around a bug in IE on Win2K whereby the HTA application doesn't function
 
 <tr class="selenium">
 <td width="25%" height="30%">
-    <iframe name="testSuiteFrame" id="testSuiteFrame" src="[% uri_base %]/test-suite" application="yes"></iframe>
+    <iframe name="testSuiteFrame" id="testSuiteFrame" src="[% request.uri_for('/test-suite') %]" application="yes"></iframe>
 </td>
 <td width="50%" height="30%">
-    <iframe name="testFrame" id="testFrame" application="yes" src="[% uri_base %]/Blank.html"></iframe>
+    <iframe name="testFrame" id="testFrame" application="yes" src="[% request.uri_for('/Blank.html') %]"></iframe>
 </td>
 
 <td width="25%">
@@ -165,7 +165,7 @@ to work-around a bug in IE on Win2K whereby the HTA application doesn't function
 
 <tr>
     <td colspan="3" height="70%">
-        <iframe name="selenium_myiframe" id="selenium_myiframe" src="[% uri_base %]/TestRunner-splash.html"></iframe>
+        <iframe name="selenium_myiframe" id="selenium_myiframe" src="[% reqeust.uri_for('/TestRunner-splash.html') %]"></iframe>
     </td>
 </tr>
 

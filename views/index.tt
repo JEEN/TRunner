@@ -4,10 +4,10 @@
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=[% settings.charset %]" />
 <title>TRunner</title>
-<link rel="stylesheet" href="[% request.uri_base %]/css/style.css" />
-<link rel="stylesheet" href="[% request.uri_base %]/css/formly.min.css" type="text/css" />
+<link rel="stylesheet" href="[% request.uri_for('/css/style.css') %]" />
+<link rel="stylesheet" href="[% request.uri_for('/css/formly.min.css') %]" type="text/css" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
-<script type="text/javascript" src="[% request.uri_base %]/javascripts/formly.min.js"></script>
+<script type="text/javascript" src="[% request.uri_for('/javascripts/formly.min.js') %]"></script>
 </head>
 <body>
   <div id="page">
@@ -19,9 +19,9 @@
     <div id="content">
 [% config.name %]
     <div>
-       <form action="[% request.uri_base %]/test-runner" id="form" title="Selenium Test Runner">
-       <input type="hidden" name="test" value="[% request.uri_base %]/test-suite" />
-       <input type="hidden" name="resultsUrl" value="[% request.uri_base %]/post-results" />
+       <form action="[% request.uri_for('/test-runner') %]" id="form" title="Selenium Test Runner">
+       <input type="hidden" name="test" value="[% request.uri_for('/test-suite') %]" />
+       <input type="hidden" name="resultsUrl" value="[% request.uri_for('/post-results') %]" />
        <p><input type="checkbox" name="auto" value="true" /> 자동테스트 시작</p>
        [% IF config.smolder.server %]
        <p><input type="checkbox" name="post" value="true" /> 테스트결과를 전송</p>
