@@ -6,7 +6,6 @@ TRunner - SeleniumCore on Plack
 
 1. 테스트를 수행할 어플(Plack기반)에 마운트시키고, 어플을 실행합니다.
 
-
     use Plack::Builder;
     use MyApp;
     my $app = MyApp->run;
@@ -17,7 +16,6 @@ TRunner - SeleniumCore on Plack
         },
         mount "/" => $app; 
     };
-
 
 2. TestSuite/TestCase 를 `selenium.yml` 파일에 YAML 형식으로 기재합니다.
 
