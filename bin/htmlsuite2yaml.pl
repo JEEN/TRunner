@@ -1,4 +1,6 @@
 #!/usr/bin/env perl
+use strict;
+use warnings;
 use Web::Query;
 use Path::Class;
 use Data::Dumper;
