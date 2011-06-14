@@ -32,7 +32,10 @@ $wq->find('tr')->each(sub {
   $c_wq->find('tbody>tr')->each(sub {
      my ($j, $celm) = @_;
 
-     push @{ $dataset->{TestCase}->{$case_name_for_key} }, [ grep { $_ } $celm->find('td')->text ]; 
+     push @{ $dataset->{TestCase}->{$case_name_for_key} }, {
+       title => $case_name,
+       tests => [ grep { $_ } $celm->find('td')->text ],
+     };
   });
 });
 
