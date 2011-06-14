@@ -4,12 +4,14 @@ TRunner - SeleniumCore on Plack
 사용법
 ------
 
-1. 테스트를 수행할 어플(Plack기반)에 마운트시키고, 어플을 실행합니다.
+1. `misc/config.yml` 을 프로젝트 루트에 옮기고 자신의 환경에 맞게 수정합니다.
+
+2. 테스트를 수행할 어플(Plack기반)에 마운트시키고, 어플을 실행합니다.
 
     use Plack::Builder;
     use MyApp;
     my $app = MyApp->run;
-    
+
     builder {
         mount "/selenium" => builder {
             load_psgi '/path/to/trunner/bin/app.pl';
@@ -17,9 +19,8 @@ TRunner - SeleniumCore on Plack
         mount "/" => $app; 
     };
 
-2. TestSuite/TestCase 를 `selenium.yml` 파일에 YAML 형식으로 기재합니다.
+3. TestSuite/TestCase 를 `selenium.yml` 파일에 YAML 형식으로 기재합니다.
 
-3. http://your-app-url/selenium 으로 접속해서 브라우저 테스트(Selenium Core) 를 수행합니다.
+4. http://your-app-url/selenium 으로 접속해서 브라우저 테스트(Selenium Core) 를 수행합니다.
 
-4. Smolder 같은 SmokeServer를 설정한다면, 여기에서 발생되는 결과를 지속적으로 관리할 수 있습니다.
-
+5. Smolder 같은 SmokeServer를 설정한다면, 여기에서 발생되는 결과를 지속적으로 관리할 수 있습니다.
