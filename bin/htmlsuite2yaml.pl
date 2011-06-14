@@ -31,13 +31,12 @@ $wq->find('tr')->each(sub {
   push @{ $dataset->{TestSuite} }, [ $case_name, $case_name_for_key ];
   my $case_html = $case_file->slurp( iomode => '<:encoding(utf8)' );
   my $c_wq = Web::Query->new_from_html($case_html);
+  $dataset->{TestCase}->{$case_name_for_key}->{title} = $case_name;
+
   $c_wq->find('tbody>tr')->each(sub {
      my ($j, $celm) = @_;
 
-     push @{ $dataset->{TestCase}->{$case_name_for_key} }, {
-       title => $case_name,
-       tests => [ grep { $_ } $celm->find('td')->text ],
-     };
+     push @{ $dataset->{TestCase}->{$case_name_for_key}->{tests} }, [ grep { $_ } $celm->find('td')->text ];
   });
 });
 
