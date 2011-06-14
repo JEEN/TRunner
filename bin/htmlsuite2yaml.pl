@@ -1,3 +1,4 @@
+#!/usr/bin/env perl
 use Web::Query;
 use Path::Class;
 use Data::Dumper;
