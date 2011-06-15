@@ -1,0 +1,6 @@
+<smolder>
+    server      smolder.example.com
+    username    yourname
+    password    s3cr3t
+    project_id  3
+</smolder>
