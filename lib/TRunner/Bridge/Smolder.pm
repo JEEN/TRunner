@@ -1,4 +1,5 @@
 package TRunner::Bridge::Smolder;
+# ABSTRACT: TRunner Smolder Brigde ## wtf description..
 use Any::Moose;
 use namespace::autoclean;
 use TRunner::Bridge::Smolder::Uploader;

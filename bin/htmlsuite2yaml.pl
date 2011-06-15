@@ -1,4 +1,6 @@
 #!/usr/bin/env perl
+package htmlsuite2yaml;
+# ABSTRACT: selenium html files to yaml converter
 use strict;
 use warnings;
 use Web::Query;
