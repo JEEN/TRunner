@@ -18,7 +18,11 @@ if ($dist_dir) {
 my $selenium_conf;
 
 before sub {
-    $selenium_conf = YAML::XS::LoadFile($ENV{TRUNNER_CONF} || path(setting('confdir') || setting('appdir'), 'selenium.yml'));
+  $selenium_conf = YAML::XS::LoadFile($ENV{TRUNNER_CONF} || path(setting('confdir') || setting('appdir'), 'selenium.yml'));
+  if (-f "$ENV{HOME}/.trunner") {
+    my %config = ParseConfig("$ENV{HOME}/.trunner");
+    config->{smolder} = $config{smolder} if defined $config{smolder};
+  }
 };
 
 get '/' => sub {
@@ -48,11 +52,6 @@ post '/post-results' => sub {
   my $smolder_conf = config->{smolder};
      $smolder_conf->{project_id} ||= $selenium_conf->{project_id};
 
-  if (-f "$ENV{HOME}/.trunner") {
-    my %config = ParseConfig("$ENV{HOME}/.trunner");
-    $smolder_conf = $config{smolder} if defined $config{smolder};
-  }
-  
   $is_passed = 1 unless $smolder_conf->{server};
   $is_passed = 1 unless $smolder_conf->{project_id};
 
