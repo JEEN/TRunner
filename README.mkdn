@@ -7,17 +7,49 @@ TRunner - SeleniumCore on Plack
 ### PSGI
 
     use Plack::Builder;
+    use File::ShareDir qw/dist_dir/;
     use MyApp;
     my $app = MyApp->run;
-    
+
     builder {
         mount "/selenium" => builder {
-            Plack::Util::load_psgi '/path/to/trunner/bin/app.pl';
+            my $dist_dir = dist_dir('TRunner');             # autodie unless installed TRunner
+            Plack::Util::load_psgi "$dist_dir/app.psgi";
         },
         mount "/" => $app;
     };
 
 ### Shell
 
-    TRUNNER_CONF=/path/to/app/conf/trunner.yml plackup -Ilib script/app.psgi
+    TRUNNER_CONF=/path/to/trunner.yml plackup -Ilib /path/to/app.psgi
 
+사용법
+------
+
+1. TRunner 를 install 합니다.
+
+    dzil build
+    cd TRunner-VERSION/
+    perl Makefile.PL
+    make && make install
+
+2. 테스트를 수행할 어플(Plack기반)에 '/selenium' 을 마운트시키고, 어플을 실행합니다.
+
+    mount "/selenium" => builder {
+        my $dist_dir = dist_dir('TRunner');             # autodie unless installed TRunner
+        Plack::Util::load_psgi "$dist_dir/app.psgi";
+    },
+
+3. `TRUNNER_CONF` 환경변수에 TestCase 설정파일을 지정합니다.
+
+    TRUNNER_CONF=/path/to/trunner.yml plackup -Ilib /path/to/app.psgi
+
+4. http://your-app-url/selenium 으로 접속해서 브라우저 테스트(Selenium Core) 를 수행합니다.
+5. Smolder 서버로 테스트 결과를 보내려면 홈디렉토리 `/home/user/.trunner` 파일에 `smolder` 정보를 입력합니다.
+
+    <smolder>
+        server      smolder.example.com
+        username    yourname
+        password    s3cr3t
+        project_id  3                       # just example
+    </smolder>
