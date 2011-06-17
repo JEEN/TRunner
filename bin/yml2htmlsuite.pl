@@ -5,8 +5,8 @@ use strict;
 use warnings;
 use utf8;
 use Pod::Usage;
+use File::Spec;
 use Getopt::Long;
-use File::Basename;
 use Catalyst::Helper;
 use Carp qw/confess/;
 use YAML::XS qw/Load LoadFile/;
@@ -47,29 +47,21 @@ sub render_files {
 sub render_case {
     my ($opts, $helper, $yml) = @_;
 
-    my $output = '';
-    if ($opts->{output}) {
-        my ($filename, $dir, $suffix) = fileparse($opts->{output});
-        $output = "$dir$filename/";
-    }
-
     for my $arrRef (@{ $yml->{TestSuite} }) {
         my @suite = @{$arrRef};
+        my $html = '';
+        $html = File::Spec->catfile($opts->{output}, "$suite[0].html") if $opts->{output};
         $yml->{TestCase}{$suite[1]}{base} = $yml->{base};
-        $helper->render_file( 'TestCase', $output . "$suite[0].html", $yml->{TestCase}{$suite[1]} );
+        $helper->render_file( 'TestCase', $html, $yml->{TestCase}{$suite[1]} );
     }
 }
 
 sub render_suite {
     my ($opts, $helper, $yml) = @_;
 
-    my $output = '';
-    if ($opts->{output}) {
-        my ($filename, $dir, $suffix) = fileparse($opts->{output});
-        $output = "$dir$filename/";
-    }
-
-    $helper->render_file( 'TestSuite', $output . 'all.html', $yml );
+    my $html = '';
+    $html = File::Spec->catfile($opts->{output}, 'all.html') if $opts->{output};
+    $helper->render_file( 'TestSuite', $html, $yml );
 }
 
 1;
