@@ -25,9 +25,12 @@ limitations under the License.
         <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium">
             <tbody>
                 <tr><td><b>TTT</b></td></tr>
-                [% FOREACH suite IN tsuite %]
+                [% FOREACH key IN tcase.keys.nsort %]
+                [% SET num = key.split('_').0 %]
                 <tr>
-                    <td>[% IF suite.2 %]<h2>[% suite.2 %]</h2>[% END %]<a href="[% request.uri_for('/test-case/' _  suite.1 ) %]">[% suite.0 %]</a></td>
+                    <td>
+                        <a href="[% request.uri_for('/test-case/' _  key ) %]">[% num _ ':' _ tcase.$key.title %]</a>
+                    </td>
                 </tr>
                 [% END %]
             </tbody>

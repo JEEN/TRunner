@@ -42,7 +42,7 @@ get '/test-case/:name' => sub {
 };
 
 get '/test-suite' => sub {
-  template 'test-suite', { tsuite => $selenium_conf->{TestSuite} };
+  template 'test-suite', { tcase=> $selenium_conf->{TestCase} };
 };
 
 post '/post-results' => sub {
