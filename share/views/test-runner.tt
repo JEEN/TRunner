@@ -66,7 +66,7 @@ to work-around a bug in IE on Win2K whereby the HTA application doesn't function
 
 <tr class="selenium">
 <td width="25%" height="30%">
-    <iframe name="testSuiteFrame" id="testSuiteFrame" src="[% request.uri_for('/test-suite') %]" application="yes"></iframe>
+    <iframe name="testSuiteFrame" id="testSuiteFrame" src="[% request.uri_for('/test-suite/' _ suite) %]" application="yes"></iframe>
 </td>
 <td width="50%" height="30%">
     <iframe name="testFrame" id="testFrame" application="yes" src="[% request.uri_for('/Blank.html') %]"></iframe>
