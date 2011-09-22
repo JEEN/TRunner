@@ -29,6 +29,14 @@
        <p><input type="checkbox" name="post" value="true" disabled /><strike> 테스트결과를 전송</strike></p>
        <span>Smolder 서버의 설정정보를 찾을 수 없어, 테스트결과를 전송할 수 없습니다.</span>
        [% END %]
+       <h1>Test Suites</h1>
+       <ul>
+        [% FOREACH suite IN suites.sort %]
+        <li>
+            <a href='[% request.uri_for('/test-runner/' _  suite ) _ '?test=' _ request.uri_for('/test-suite/' _ suite ) %]'>[% suite %]</a>
+        </li>
+        [% END %]
+       </ul>
        <input type="submit" value="브라우저 테스트화면으로" />
        </form>
       </div>

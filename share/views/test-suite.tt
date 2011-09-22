@@ -24,12 +24,12 @@ limitations under the License.
 
         <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium">
             <tbody>
-                <tr><td><b>TTT</b></td></tr>
+                <tr><td><h1><b>[% suite %]</h1></b></td></tr>
                 [% FOREACH key IN tcase.keys.nsort %]
                 [% SET num = key.split('_').0 %]
                 <tr>
                     <td>
-                        <a href="[% request.uri_for('/test-case/' _  key ) %]">[% num _ ':' _ tcase.$key.title %]</a>
+                        <a href="[% request.uri_for('/test-case/' _ suite _ '/' _  key ) %]">[% num _ ':' _ tcase.$key.title %]</a>
                     </td>
                 </tr>
                 [% END %]
