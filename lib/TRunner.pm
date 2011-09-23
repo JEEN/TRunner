@@ -9,6 +9,14 @@ use File::Basename qw/fileparse/;
 use Config::General qw/ParseConfig/;
 use YAML::XS;
 our $VERSION = '0.1';
+unless($ENV{TRUNNER_DEVEL}) {
+    ## dynamic configuration here
+    my $dist_dir = dist_dir('TRunner');
+    if ($dist_dir) {
+        set views => "$dist_dir/views";
+        set public => "$dist_dir/public";
+    }
+}
 
 my $selenium_conf;
 
