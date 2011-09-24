@@ -24,8 +24,9 @@ before sub {
     my $dir = $ENV{TRUNNER_CONFDIR} ? $ENV{TRUNNER_CONFDIR} : 'seleinum/';
     opendir my $confdir, $dir or die;
     while ( my $file = readdir($confdir) ) {
+        $file = File::Spec->catfile($ENV{TRUNNER_CONFDIR}, $file);
         next unless -f $file;
-        next unless $file =~ /\.ya?ml/i;
+        next unless $file =~ /\.ya?ml$/i;
         my ($filename) = fileparse( $file, qr/\.[^.]*/ );
         $selenium_conf->{$filename} = YAML::XS::LoadFile($file) or die;
     }

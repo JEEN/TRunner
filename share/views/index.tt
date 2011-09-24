@@ -32,9 +32,7 @@
        <h1>Test Suites</h1>
        <ul>
         [% FOREACH suite IN suites.sort %]
-        <li>
-            <a href='[% request.uri_for('/test-runner/' _  suite ) _ '?test=' _ request.uri_for('/test-suite/' _ suite ) %]'>[% suite %]</a>
-        </li>
+        <li><a href="[% request.uri_for('/test-runner/' _ suite) %]?test=[% request.uri_for('/test-suite/' _ suite ) %]">[% suite %]</a></li>
         [% END %]
        </ul>
        <input type="submit" value="브라우저 테스트화면으로" />
