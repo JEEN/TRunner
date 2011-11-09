@@ -20,7 +20,7 @@ unless($ENV{TRUNNER_DEVEL}) {
 
 my $selenium_conf;
 
-before sub {
+hook before => sub {
     my $dir = $ENV{TRUNNER_CONFDIR} ? $ENV{TRUNNER_CONFDIR} : 'seleinum/';
     opendir my $confdir, $dir or die;
     $selenium_conf = {};
